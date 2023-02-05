@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temprature_converor</title>
+    <style>
+        body{
+            padding:50px 100px;
+        }
+        #containor {
+            
+            padding: 10px;
+           
+            height: 300px;
+            width: 98%;
+            text-align: center;
+            background-color: #1abc9c;
+            font-size: 25px;
+
+        }
+
+        h1 {
+            text-align: center;
+           
+            background-color: #1abc9c;
+            color: white;
+           
+        }
+
+        .content {
+
+            display: inline-block;
+            margin:50px;
+            
+            color: white;
+        }
+        .inp{
+            padding:5px 10px;
+            margin:10px;
+            font-size:30px;
+            font-weight: bold;
+            width:250px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Celcius to Fahrenheit</h1>
+    <div id="containor">
+
+        <div class="content">
+            <label>Celcius</label><br />
+            <input type="number" id="cel" class="inp" value="0">
+        </div>
+        <div class="content">
+            <label>Fahrenheit</label><br />
+            <input type="number" id="fahren" class="inp" value="32">
+        </div>
+    </div>
+    <script>
+        let cel=document.getElementById('cel');
+        let fahre=document.getElementById('fahren');
+        cel.addEventListener('input',function(){
+            let c = this.value;
+            let f=(c * 9/5) + 32 ;
+            if(!Number.isInteger(f))
+            {
+               f= f.toFixed(4);
+            }
+            fahre.value=f;
+        });
+        fahre.addEventListener('input',function(){
+            let f=this.value;
+            let c=(f - 32) * 5/9;
+            if(!Number.isInteger(f))
+            {
+                c= c.toFixed(4);
+            }
+            cel.value=c;
+        })
+    </script>
+</body>
+
+</html>
